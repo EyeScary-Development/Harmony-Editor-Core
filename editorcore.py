@@ -1,6 +1,5 @@
-#Harmony editor CORE version 0.next developer build
+#Harmony editor CORE version 1.0
 #Copyright EyeScary Development
-#How did you get this?
 #Uses some code from Stronge by EyeScary Development
 #Modified? []
 import extensions
