@@ -1,13 +1,13 @@
-#Harmony code editor EXTENDED FUNCTIONS version 0.next developer build
+#Harmony code editor EXTENDED FUNCTIONS version 1.0
 #Copyright EyeScary Development 2026
 #Uses some code from Stronge by EyeScary Development
-#How did you get this?
 
 #Imports
 import os
 from typing import (List, Any)
-import tkinter # tkinter is used here to make editing a line compatible everywhere (clunkier but readline is only nix)
 from pathlib import Path
+
+#Add your imports here
 
 #variables
 
