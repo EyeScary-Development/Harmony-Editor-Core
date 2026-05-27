@@ -1,73 +1,53 @@
-#Harmony editor CORE version 1.0
-#Copyright EyeScary Development 2026
-#Uses some code from Stronge by EyeScary Development
+#Harmony NEW code editor core version 1.0
+#Copyright Eyescary development 2026
 #Modified? []
+
 import extensions
 import os
 
-#put your imports here
+class editor:
+    def openfile(filename):
+        try:
+            with open(filename, "r") as file:
+                return file.readlines()
+        except:
+            return []
+        
+    def write(self, filename):
+        with open(filename, "w") as file:
+            for item in self.lines:
+                file.write(item)
 
-
-#variables
-lines=[]
-filename=...
-extension=...
-
-#functions
-
-#opens the file
-def openfile(filename):
-    with open(filename, "r") as file:
-        return file.readlines()
-
-#write to the file
-def write(filename, extension):
-    global lines
-    with open(filename, "w") as file:
-        for item in lines:
-            file.write(item)
-
-#core print file functionality (no syntax highlighting, build your own and replace all references to printfilecore with extensions.customprintfile)            
-def printfilecore():
-   linenum = 1
-   global lines
-   for item in lines:
+    def printfilecore(self):
+        os.system("cls" if os.name == "nt" else "clear")
+        linenum = 1
+        for item in self.lines:
             print(str(linenum)+"|"+item, end="")
             linenum+=1
 
-#editor function
-def editor():
-    global lines
-    global filename
-    global extension
-    os.system("cls" if os.name == "nt" else "clear")
-    printfilecore()
-    userInput=input("|")
-    if userInput.startswith(":"):
-        lines = extensions.commands(userInput.strip(), lines, filename, extension)
-    else:
-        lines.append(userInput+'\n')
-    write(filename, extension)
+    def main(self):
+        editor.printfilecore(self)
+        userInput=input("|")
+        if userInput.startswith(":"):
+            self.lines = extensions.commands(userInput.strip(), self.lines, self.filename, self.extension)
+        else:
+            self.lines.append(userInput+'\n')
+        editor.write(self, self.filename)
 
-#main function
-def main():
-    global filename, extension, lines
-    name=input("what is the name of the file you wish to edit?: ")
-    if "." in name:
-        extension = "." + name.split(".")[1]
-        filename = name
-    else:
-        extension = input("what is the extension of the file?: ")
-        if not extension.startswith("."):
-            extension = "." + extension
-        filename = name + extension
-    print(filename, extension)
-    try:
-        lines = openfile(filename)
-    except FileNotFoundError:
-        lines=[]
-    while True:
-        editor()
+    def __init__(self):
+        name=input("what is the name of the file you wish to edit?: ")
+        if "." in name:
+            self.extension = "." + name.split(".")[1]
+            self.filename = name
+        else:
+            self.extension = input("what is the extension of the file?: ")
+            if not self.extension.startswith("."):
+                self.extension = "." + self.extension
+            self.filename = name + self.extension
+        print(self.filename, self.extension)
+        self.lines = editor.openfile(self.filename)
+        while True:
+            editor.main(self)
 
-if __name__ == "__main__":
-    main()
+
+instance = editor()

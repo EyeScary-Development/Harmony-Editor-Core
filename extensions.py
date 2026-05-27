@@ -1,4 +1,4 @@
-#Harmony code editor EXTENDED FUNCTIONS version 1.0
+#Harmony code editor EXTENDED FUNCTIONS version 1.0.1
 #Copyright EyeScary Development 2026
 #Uses some code from Stronge by EyeScary Development
 
@@ -25,7 +25,3 @@ def commands(userInput: str, lines: List[Any], filename, extension):
             print("invalid command")
             input("press enter to continue: ")
     return lines
-
-
-def clearfile():
-    return []
