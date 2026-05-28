@@ -1,4 +1,4 @@
-#Harmony NEW code editor core version 1.0
+#Harmony NEW code editor core version 1.0.1
 #Copyright Eyescary development 2026
 #Modified? []
 
@@ -46,8 +46,8 @@ class editor:
             self.filename = name + self.extension
         print(self.filename, self.extension)
         self.lines = editor.openfile(self.filename)
-        while True:
-            editor.main(self)
 
 
 instance = editor()
+while True:
+    instance.main()
