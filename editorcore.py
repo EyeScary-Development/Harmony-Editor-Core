@@ -1,4 +1,4 @@
-#Harmony NEW code editor core version 1.0.1
+#Harmony NEW code editor core version 1.1
 #Copyright Eyescary development 2026
 #Modified? []
 
